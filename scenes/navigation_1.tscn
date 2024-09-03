@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceu3x5rpi3r6n"]
+
+[ext_resource type="PackedScene" uid="uid://ddtyv4gwjn615" path="res://scenes/chicken.tscn" id="1_i3c47"]
+[ext_resource type="Script" path="res://scripts/target.gd" id="2_uga8p"]
+[ext_resource type="Texture2D" uid="uid://jt0c1lqju8ha" path="res://assets/Characters/Egg_And_Nest.png" id="3_h0jvq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_pi7pc"]
+vertices = PackedVector2Array(-5.39844, 95.4531, -24.9531, 29.6797, -23.3203, -25.6406, 125.094, -6.20312, 126.094, 88.4062, 46.0625, 98.6719, 180.148, 97.9531, 179.102, 16.3125, 318.578, -9.28125, 330.039, 70.0469, 337.961, 185.812, 286.367, 157.211, 228.797, 155.773, 220.828, 253.32, 168.891, 249.609, 156.82, 154, 330.102, 257.352, 304.43, 255.547, 68.3828, 154, 41.2266, 143.742, -2.64062, 156.422, 41.5312, 251.438, 1.57812, 248.641)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 6), PackedInt32Array(10, 16, 17, 11), PackedInt32Array(6, 11, 12), PackedInt32Array(5, 4, 6, 15, 18, 19), PackedInt32Array(20, 19, 18, 21, 22)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-33, -37, 135, -15, 136, 80, 170, 86, 169, 8, 327, -21, 340, 69, 348, 186, 339, 268, 296, 265, 278, 167, 238, 166, 230, 264, 160, 259, 148, 164, 76, 164, 49, 262, -8, 258, -13, 149, 32, 136, 35, 108, -13, 105, -35, 31)])
+
+[node name="Navigation1" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_pi7pc")
+
+[node name="Chicken" parent="." instance=ExtResource("1_i3c47")]
+
+[node name="Target" type="Marker2D" parent="."]
+position = Vector2(210, 42)
+script = ExtResource("2_uga8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+texture = ExtResource("3_h0jvq")
+hframes = 4
